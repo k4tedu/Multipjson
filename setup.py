@@ -1,19 +1,18 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
-    name='multipjson',
-    version='1.0.0',
-    py_modules=['generate_json'],
+    name="multipjson",
+    version="1.0.0",
+    description="Multiple JSON Generator CLI Tool",
+    author="k4tedu",
+    packages=find_packages(),
+    include_package_data=True,
     entry_points={
         'console_scripts': [
-            'multipjson=generate_json:generate_json_objects',
+            'multipjson = multipjson.generate_json:main',
         ],
     },
     install_requires=[
-        'requests'
+        "requests"
     ],
-    author='k4tedu',
-    description='Multiple JSON Generator CLI tool',
-    python_requires='>=3.6',
 )
-

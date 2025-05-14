@@ -1,6 +1,7 @@
 import json
 import argparse
-from update_check import check_for_updates
+from multipjson.update_check import check_for_updates
+
 
 def print_banner():
     try:
@@ -48,4 +49,8 @@ def generate_json_objects():
         print(f"❌ Failed to write to file: {e}")
 
 if __name__ == "__main__":
+    generate_json_objects()
+
+
+def main():
     generate_json_objects()
