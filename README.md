@@ -1,13 +1,10 @@
-# multipjson
-
+# Multipjson
   __  __       _ _   _       _                  
  |  \/  |_   _| | |_(_)_ __ (_)___  ___  _ __   
  | |\/| | | | | | __| | '_ \| / __|/ _ \| '_ \  
  | |  | | |_| | | |_| | |_) | \__ \ (_) | | | | 
  |_|  |_|\__,_|_|\__|_| .__// |___/\___/|_| |_|  v1.0.0
                       |_| |__/                  
-
-	    
 	    Multiple JSON Generator
                Created by k4tedu
 
@@ -30,6 +27,13 @@
 ## 🔧 Installation
 
 ```bash
-git clone https://github.com/username/multipjson
-cd multipjson
-pip install .
+git clone https://github.com/k4tedu/Multipjson
+cd Multipjson
+pipx install .
+
+
+## 🚀 Usage
+multipjson --help
+
+multipjson --total 5 --fields name,role --values user,admin --output output.txt
+

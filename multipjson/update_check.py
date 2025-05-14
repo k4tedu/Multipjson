@@ -1,24 +1,17 @@
 import requests
+import os
 
-def check_for_updates(current_version: str):
-    """
-    Memeriksa versi terbaru dari GitHub repo.
-    Jika tersedia versi lebih baru dari current_version, tampilkan notifikasi.
-    """
-
-    GITHUB_RAW_URL = "https://raw.githubusercontent.com/k4tedu/Multipjson/main/version.txt"
-
+def check_for_updates():
     try:
-        response = requests.get(GITHUB_RAW_URL, timeout=5)
+        version_file = os.path.join(os.path.dirname(__file__), "version.txt")
+        with open(version_file, 'r') as f:
+            local_version = f.read().strip()
+
+        response = requests.get("https://raw.githubusercontent.com/k4tedu/Multipjson/main/multipjson/version.txt")
         if response.status_code == 200:
-            latest_version = response.text.strip()
-
-            if latest_version != current_version:
-                print(f"\n🚀 New version available: {latest_version} (You are using: {current_version})")
-                print("🔁 Please update by pulling the latest version from GitHub:")
-                print("   git pull origin main\n")
-        else:
-            print("⚠️ Failed to check for updates (GitHub returned non-200 status).")
-
-    except requests.RequestException as e:
-        print(f"⚠️ Unable to check for updates: {e}")
+            remote_version = response.text.strip()
+            if remote_version != local_version:
+                print(f"\n🔔 Update available: {remote_version} (you have {local_version})")
+                print("👉 Run `git pull` or re-clone from GitHub to get the latest version.\n")
+    except Exception:
+        pass  # Silent if offline

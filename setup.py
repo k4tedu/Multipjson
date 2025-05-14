@@ -13,6 +13,7 @@ setup(
         ],
     },
     install_requires=[
-        "requests"
+        "requests",
+        "colorama"
     ],
 )
