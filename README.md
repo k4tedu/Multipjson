@@ -29,7 +29,7 @@
 ## 🔧 Installation
 
 ```bash
-git clone https://github.com/k4tedu/Multipjson
+git clone https://github.com/k4tedu/Multipjson.git
 cd Multipjson
 pipx install .
 ```
