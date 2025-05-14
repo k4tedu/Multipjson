@@ -20,8 +20,8 @@ def generate_json_objects():
     parser = argparse.ArgumentParser(description="Generate multiple JSON objects easily.")
     parser.add_argument("-t", "--total", type=int, help="Number of JSON objects", required=False)
     parser.add_argument("-o", "--output", help="Output filename (e.g., output.txt)", required=False)
-    parser.add_argument("--fields", help="Comma-separated field names", required=False)
-    parser.add_argument("--values", help="Comma-separated base values for each field", required=False)
+    parser.add_argument("-f", "--fields", help="Comma-separated field names", required=False)
+    parser.add_argument("-v", "--values", help="Comma-separated base values for each field", required=False)
     parser.add_argument("--prefix", help="Optional prefix for each field value", default="")
     parser.add_argument("--suffix", help="Optional suffix for each field value", default="")
 
@@ -29,21 +29,21 @@ def generate_json_objects():
 
     check_for_updates()
 
-    if not (args.total and args.filename and args.fields and args.values):
-        # interactive fallback
+    # fallback ke input manual jika argumen tidak lengkap
+    if not all(getattr(args, key, None) for key in ["total", "output", "fields", "values"]):
         args.total = int(input("How many JSON objects? "))
-        args.filename = input("Output filename (e.g., output.txt): ").strip()
+        args.output = input("Output filename (e.g., output.txt): ").strip()
         fields_input = input("Enter field names separated by commas (e.g., name,description): ").strip()
         values_input = input("Enter base values separated by commas (e.g., user,desc): ").strip()
     else:
         fields_input = args.fields
         values_input = args.values
 
-    field_names = [x.strip() for x in fields_input.split(',')]
-    base_values = [x.strip() for x in values_input.split(',')]
+    field_names = [f.strip() for f in fields_input.split(',')]
+    base_values = [v.strip() for v in values_input.split(',')]
 
     if len(field_names) != len(base_values):
-        print("❌ Number of fields and values must match.")
+        print(Fore.RED + "❌ The number of fields and values must match." + Style.RESET_ALL)
         return
 
     json_array = []
@@ -53,10 +53,10 @@ def generate_json_objects():
             item[field] = f"{args.prefix}{base}{i}{args.suffix}"
         json_array.append(item)
 
-    with open(args.filename, 'w') as f:
+    with open(args.output, 'w') as f:
         json.dump(json_array, f, indent=2)
 
-    print(f"\n✅ Successfully generated {args.total} JSON objects into '{args.filename}'.")
+    print(Fore.GREEN + f"\n✅ Successfully generated {args.total} JSON objects into '{args.output}'." + Style.RESET_ALL)
 
 def main():
     print_banner()
