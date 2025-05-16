@@ -21,7 +21,7 @@
 - ✅ Mendukung kustomisasi `field` dan `value` secara dinamis via input form.
 - ✅ Fitur `--prefix` dan `--suffix`
 - ✅ Output JSON yang dihasilkan dapat langsung dilihat dalam tampilan yang mudah dibaca.
-- ✅ - Fitur **Copy to Clipboard** untuk menyalin JSON hasil generate dengan sekali klik
+- ✅ Fitur **Copy to Clipboard** untuk menyalin JSON hasil generate dengan sekali klik
 - ✅ Tombol **View Raw** yang membuka JSON mentah dalam tab baru
 - ✅ Mode **Dark Mode** toggle di halaman utama untuk kenyamanan penggunaan di berbagai kondisi pencahayaan.
 

@@ -1,50 +1,54 @@
 from fastapi import FastAPI, Request, Form
-from fastapi.responses import HTMLResponse, JSONResponse, FileResponse, RedirectResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
-from multipjson.generate_json import build_json_array
-import os, json
+from fastapi.staticfiles import StaticFiles
+from generate_json import generate_data
+from uuid import uuid4
+import os
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+TEMPLATES_DIR = os.path.join(BASE_DIR, "../templates")
+STATIC_DIR = os.path.join(BASE_DIR, "../static")
+
+templates = Jinja2Templates(directory=TEMPLATES_DIR)
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+
+# In-memory cache for generated JSON (temporary for each session)
+raw_json_store = {}
 
 @app.get("/", response_class=HTMLResponse)
-async def form_page(request: Request):
+async def read_form(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-@app.post("/", response_class=HTMLResponse)
-async def handle_form(
+@app.post("/generate", response_class=HTMLResponse)
+async def generate_json(
     request: Request,
-    total: int = Form(...),
     fields: str = Form(...),
-    values: str = Form(...),
-    prefix: str = Form(""),
-    suffix: str = Form(""),
-    id_type: str = Form("normal"),
-    email_domain: str = Form("demo.org"),
-    phone_digits: int = Form(12)
+    id_option: str = Form("uuid"),
+    phone_option: str = Form("random"),
+    email_domain: str = Form("demo.org")
 ):
     try:
-        json_data = build_json_array(
-            total=total,
-            fields=fields,
-            values=values,
-            prefix=prefix,
-            suffix=suffix,
-            id_type=id_type,
-            email_domain=email_domain,
-            phone_digits=phone_digits
-        )
-        os.makedirs("static", exist_ok=True)
-        with open("static/web_output.json", "w") as f:
-            json.dump(json_data, f, indent=2)
+        fields_list = [field.strip() for field in fields.split(",") if field.strip()]
+        json_data = generate_data(fields_list, id_option, phone_option, email_domain)
 
-        return templates.TemplateResponse("result.html", {"request": request, "data": json_data})
+        # Generate unique key for this JSON result
+        json_key = str(uuid4())
+        raw_json_store[json_key] = json_data
+
+        return templates.TemplateResponse("result.html", {
+            "request": request,
+            "json_data": json_data,
+            "json_key": json_key
+        })
     except Exception as e:
-        return HTMLResponse(f"<h3>Error: {str(e)}</h3>")
+        return JSONResponse(status_code=500, content={"error": str(e)})
 
-@app.get("/static/web_output.json", response_class=FileResponse)
-async def get_raw_json():
-    return "static/web_output.json"
+@app.get("/view_raw/{json_key}", response_class=JSONResponse)
+async def view_raw_json(json_key: str):
+    data = raw_json_store.get(json_key)
+    if not data:
+        return JSONResponse(status_code=404, content={"error": "JSON not found"})
+    return JSONResponse(content=data)
