@@ -1,7 +1,0 @@
-{
-  "buildCommand": "pip install -r requirements.txt",
-  "startCommand": "gunicorn webapp:app",
-  "healthcheckPath": "/",
-  "port": 5000,
-  "rootDirectory": "."
-}
