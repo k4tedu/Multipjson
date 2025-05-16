@@ -13,7 +13,7 @@ setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'multipjson = multipjson.generate_json:main',
+            'multipjson=multipjson.__main__:main',  # <== inilah kuncinya
         ],
     },
     install_requires=[
