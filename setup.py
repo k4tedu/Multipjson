@@ -13,11 +13,12 @@ setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'multipjson=multipjson.__main__:main',  # <== inilah kuncinya
+            'multipjson = multipjson.generate_json:main',
         ],
     },
     install_requires=[
         "requests",
         "colorama"
-    ]
+    ],
+    python_requires='>=3.7',
 )
