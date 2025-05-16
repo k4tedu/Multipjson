@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file, redirect, url_for
+from flask import Flask, render_template, request
 from multipjson.generate_json import build_json_array
 import os
 import json
@@ -32,21 +32,27 @@ def index():
         except Exception as e:
             return f"<h3>Error: {str(e)}</h3>"
 
-        # Simpan ke folder output
-        output_path = os.path.join("output", "web_output.json")
-        os.makedirs("output", exist_ok=True)
+        # Simpan hasil generate ke output/web_output.json
+        output_dir = "output"
+        os.makedirs(output_dir, exist_ok=True)
+        output_path = os.path.join(output_dir, "web_output.json")
         with open(output_path, 'w') as f:
             json.dump(json_data, f, indent=2)
 
-        # Salin juga ke folder static supaya bisa diakses via /static/web_output.json
-        os.makedirs("static", exist_ok=True)
-        static_output_path = os.path.join("static", "web_output.json")
+        # Salin juga ke static supaya bisa diakses via /static/web_output.json
+        static_dir = "static"
+        os.makedirs(static_dir, exist_ok=True)
+        static_output_path = os.path.join(static_dir, "web_output.json")
         with open(static_output_path, 'w') as f:
             json.dump(json_data, f, indent=2)
 
-        return render_template('result.html', data=json_data)
+        # Kirim hasil json sebagai string ke template agar urutannya terjaga
+        json_string = json.dumps(json_data, indent=2)
+
+        return render_template('result.html', json_string=json_string)
 
     return render_template('index.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)

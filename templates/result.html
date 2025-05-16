@@ -9,7 +9,6 @@
             background-color: #f5f5f5;
             color: #000;
         }
-
         .json-wrapper {
             background: #fff;
             border: 1px solid #ccc;
@@ -18,14 +17,12 @@
             position: relative;
             padding: 10px 20px 20px 20px;
         }
-
         .json-toolbar {
             display: flex;
             justify-content: flex-end;
             gap: 10px;
             margin-bottom: 10px;
         }
-
         .json-toolbar button,
         .json-toolbar a {
             background-color: #007bff;
@@ -37,18 +34,15 @@
             cursor: pointer;
             font-size: 13px;
         }
-
         .json-toolbar button:hover,
         .json-toolbar a:hover {
             background-color: #0056b3;
         }
-
         pre {
             margin: 0;
             white-space: pre-wrap;
             word-wrap: break-word;
         }
-
         .generate-again {
             margin-top: 20px;
             display: inline-block;
@@ -58,18 +52,15 @@
             color: white;
             border-radius: 4px;
         }
-
         .generate-again:hover {
             background-color: #0056b3;
         }
-
         .dark-toggle {
             position: fixed;
             top: 15px;
             right: 20px;
             z-index: 999;
         }
-
         .dark-toggle button {
             background-color: #333;
             color: #fff;
@@ -79,34 +70,28 @@
             cursor: pointer;
             font-size: 13px;
         }
-
         .dark-toggle button:hover {
             background-color: #444;
         }
-
         .dark-mode {
             background-color: #1e1e1e;
             color: #f0f0f0;
         }
-
         .dark-mode .json-wrapper {
             background-color: #2c2c2c;
             border-color: #444;
         }
-
         .dark-mode .json-toolbar button,
         .dark-mode .json-toolbar a,
         .dark-mode .generate-again {
             background-color: #444;
             color: #fff;
         }
-
         .dark-mode .json-toolbar button:hover,
         .dark-mode .json-toolbar a:hover,
         .dark-mode .generate-again:hover {
             background-color: #555;
         }
-
         .dark-mode pre {
             background-color: transparent;
             color: #f8f8f8;
@@ -125,7 +110,7 @@
             <a href="{{ url_for('static', filename='web_output.json') }}" target="_blank">🔍 View Raw</a>
             <button onclick="copyToClipboard()">📋 Copy</button>
         </div>
-        <pre id="json-content">{{ data | tojson(indent=2) }}</pre>
+        <pre id="json-content">{{ json_string | safe }}</pre>
     </div>
 
     <a href="{{ url_for('index') }}" class="generate-again">↩ Generate Again</a>
@@ -133,10 +118,10 @@
     <script>
         function copyToClipboard() {
             const content = document.getElementById("json-content").innerText;
-            navigator.clipboard.writeText(content).then(function() {
+            navigator.clipboard.writeText(content).then(() => {
                 alert("✅ Copied to clipboard!");
-            }, function(err) {
-                alert("❌ Failed to copy text: ", err);
+            }, (err) => {
+                alert("❌ Failed to copy text: " + err);
             });
         }
 

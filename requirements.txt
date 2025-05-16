@@ -2,6 +2,4 @@ Flask==2.2.5
 gunicorn==21.2.0
 colorama==0.4.6
 requests==2.31.0
-fastapi
-uvicorn
 jinja2

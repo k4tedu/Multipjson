@@ -31,8 +31,18 @@
 1. Pastikan kamu sudah punya **Python 3.7+** dan **pip** atau **pipx** terinstall.
 2. Clone repository ini:
 ```bash
+# 1. Clone repo
 git clone https://github.com/k4tedu/Multipjson.git
 cd Multipjson
+```
+3. Install dependencies:
+```bash
+# 2. Install dependencies
+pip install -r requirements.txt
+```
+atau jika menggunakan pipx (opsional, untuk isolated CLI tool install):
+```bash
+pipx install .
 ```
 
 ## 🚀 Usage
