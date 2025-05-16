@@ -36,11 +36,6 @@ cd Multipjson
 pipx install .
 ```
 
-## Atau bisa akses melalui web ini :
-```bash
-URL dari Railway
-```
-
 ## 🚀 Usage
 
 - Using without flags just type `multipjson`
@@ -52,4 +47,12 @@ multipjson
 multipjson --help
 
 multipjson --total 5 --fields name,role --values user,admin --output output.txt
+```
+
+- or Generete `JSON Objects` via the web (your `localhost`) :
+```bash
+python3 webapp.py
+```
+```bash
+* Running on http://127.0.0.1:5000
 ```

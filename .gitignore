@@ -1,56 +1,6 @@
-# Python bytecode
 __pycache__/
-*.py[cod]
-*$py.class
-
-# Virtual environments
-.venv/
-env/
-venv/
-ENV/
-
-# VSCode, PyCharm, and IDE configs
-.vscode/
-.idea/
-*.swp
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Logs and system files
-*.log
-
-# Static output
-/static/web_output.json
-
-# Vercel
-.vercel/
-
-# Local .env files
+*.pyc
+output/
 .env
-.env.*
-
-# Pytest cache
-.pytest_cache/
-
-# Compiled C extensions
-*.so
-
-# Jupyter
-.ipynb_checkpoints
-
-# Coverage reports
-htmlcov/
-.tox/
-.coverage
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-
-# Build artifacts
-build/
-dist/
-*.egg-info/
+*.log
+*.sqlite3
