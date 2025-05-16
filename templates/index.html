@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MultipJSON Generator</title>
+    <style>
+              body { font-family: Arial, sans-serif; margin: 40px; }
+              form { max-width: 600px; margin: auto; }
+              input, textarea, select { width: 100%; padding: 10px; margin: 10px 0; }
+              button { padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+              button:hover { background-color: #0056b3; } /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #eee;
+        }
+        body.dark-mode input, body.dark-mode textarea {
+            background-color: #1e1e1e;
+            color: #fff;
+            border: 1px solid #555;
+        }
+        body.dark-mode button {
+            background-color: #333;
+            color: white;
+        }
+        body.dark-mode button:hover {
+            background-color: #555;
+        }
+        #darkModeToggle {
+            float: right;
+            margin-bottom: 20px;
+            background-color: #444;
+            color: white;
+        }
+        #darkModeToggle:hover {
+            background-color: #666;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+    </style>
+    <script>
+          function toggleDarkMode() {
+              document.body.classList.toggle("dark-mode");
+              localStorage.setItem("dark-mode", document.body.classList.contains("dark-mode"));
+          }
+
+          window.onload = function() {
+              if (localStorage.getItem("dark-mode") === "true") {
+                  document.body.classList.add("dark-mode");
+              }
+          }
+    </script>
+  </head>
+<body>
+    <button id="darkModeToggle" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+    <h2>Generate JSON Data</h2>
+    <form method="POST">
+        <label>Total Data</label>
+        <input type="number" name="total" required>
+
+        <label>Fields (comma-separated)</label>
+        <input type="text" name="fields" placeholder="e.g. id,name,email,phone" required>
+
+        <label>Values (comma-separated for each field)</label>
+        <input type="text" name="values" placeholder="e.g. id,name,email,phone" required>
+
+        <label>Prefix (optional)</label>
+        <input type="text" name="prefix" placeholder="e.g. user_">
+
+        <label>Suffix (optional)</label>
+        <input type="text" name="suffix" placeholder="e.g. _dev">
+
+        <label>ID Type (uuid or normal)</label>
+        <select name="id_type">
+            <option value="normal">normal</option>
+            <option value="uuid">uuid</option>
+        </select>
+
+        <label>Email Domain (optional)</label>
+        <input type="text" name="email_domain" placeholder="e.g. demo.org">
+
+        <label>Phone Digits</label>
+        <input type="number" name="phone_digits" value="12">
+
+        <button type="submit">Generate JSON</button>
+    </form>
+</body>
+</html>

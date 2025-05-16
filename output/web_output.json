@@ -1,0 +1,142 @@
+[
+  {
+    "id": "9e467e1a-9252-4f4b-845b-b2946647af60",
+    "name": "bambang",
+    "email": "bambang442@mail.com",
+    "age": "48",
+    "status": "Active"
+  },
+  {
+    "id": "8deb2aed-e161-4ae3-827b-c1e258308e84",
+    "name": "john",
+    "email": "john553@mail.com",
+    "age": "55",
+    "status": "Inactive"
+  },
+  {
+    "id": "d14887fa-bee4-434e-85a9-76c3ab7aff3d",
+    "name": "mince",
+    "email": "mince843@mail.com",
+    "age": "31",
+    "status": "Pending"
+  },
+  {
+    "id": "0fa5611f-5ee5-499e-a81f-927935f4b4e4",
+    "name": "jane",
+    "email": "jane920@mail.com",
+    "age": "65",
+    "status": "Pending"
+  },
+  {
+    "id": "7b9d8bab-ae5b-4371-9bb2-25d73dfaab08",
+    "name": "jane",
+    "email": "jane606@mail.com",
+    "age": "19",
+    "status": "Inactive"
+  },
+  {
+    "id": "57d317b3-027c-4584-91e6-df0a6b02656c",
+    "name": "utu",
+    "email": "utu801@mail.com",
+    "age": "61",
+    "status": "Active"
+  },
+  {
+    "id": "7c7b922e-b60a-4cbf-a743-7bb817865b50",
+    "name": "jane",
+    "email": "jane956@mail.com",
+    "age": "50",
+    "status": "Pending"
+  },
+  {
+    "id": "f609a667-0dc2-4b16-8b55-81eed415dc9d",
+    "name": "anna",
+    "email": "anna577@mail.com",
+    "age": "48",
+    "status": "Inactive"
+  },
+  {
+    "id": "e2a6fee2-8bd0-4582-9f71-55d5d5a8f30d",
+    "name": "agus",
+    "email": "agus152@mail.com",
+    "age": "36",
+    "status": "Active"
+  },
+  {
+    "id": "921a3954-6fbd-4164-91ad-1c2d12e9e50d",
+    "name": "lisa",
+    "email": "lisa765@mail.com",
+    "age": "30",
+    "status": "Inactive"
+  },
+  {
+    "id": "5f7513d6-ac8e-444f-ac5a-6f441b955941",
+    "name": "chris",
+    "email": "chris673@mail.com",
+    "age": "51",
+    "status": "Active"
+  },
+  {
+    "id": "23a5786b-54d2-45de-95f5-80934e0a6037",
+    "name": "jane",
+    "email": "jane582@mail.com",
+    "age": "45",
+    "status": "Pending"
+  },
+  {
+    "id": "a17ee0ac-a438-420d-8a06-ea2836112f84",
+    "name": "john",
+    "email": "john599@mail.com",
+    "age": "44",
+    "status": "Pending"
+  },
+  {
+    "id": "a151c0fe-1e49-4146-b2bc-bce447af5670",
+    "name": "agus",
+    "email": "agus660@mail.com",
+    "age": "51",
+    "status": "Active"
+  },
+  {
+    "id": "dae442bf-e767-43a0-9349-4b7dab361315",
+    "name": "lisa",
+    "email": "lisa436@mail.com",
+    "age": "44",
+    "status": "Pending"
+  },
+  {
+    "id": "f1fb6ff8-e495-4682-be3f-4999344e8fb7",
+    "name": "agus",
+    "email": "agus140@mail.com",
+    "age": "50",
+    "status": "Active"
+  },
+  {
+    "id": "fce5f4d5-9a9b-4594-a544-e2c244f4d0f9",
+    "name": "anna",
+    "email": "anna754@mail.com",
+    "age": "29",
+    "status": "Pending"
+  },
+  {
+    "id": "7d436ec5-5757-45d2-aee4-8426f206a9db",
+    "name": "david",
+    "email": "david981@mail.com",
+    "age": "27",
+    "status": "Pending"
+  },
+  {
+    "id": "8e07c417-ba1a-4e53-a873-fbad806d9fb3",
+    "name": "utu",
+    "email": "utu553@mail.com",
+    "age": "48",
+    "status": "Active"
+  },
+  {
+    "id": "6850f2a6-b2ad-4c63-9476-f3e462d2e82c",
+    "name": "anna",
+    "email": "anna907@mail.com",
+    "age": "34",
+    "status": "Pending"
+  }
+]

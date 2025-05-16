@@ -10,31 +10,44 @@
                Created by k4tedu
 ```
 
-**multipjson** (Multiple JSON Generator) adalah CLI tool buatan `k4tedu` untuk menghasilkan array objek JSON secara otomatis dengan field yang bisa dikustomisasi. Cocok untuk testing, dummy data, atau API simulasi.
+**Multipjson** adalah sebuah web-based JSON generator tool yang dirancang untuk membantu kamu membuat data JSON secara cepat dan dinamis. Tool ini sangat berguna untuk keperluan testing aplikasi, pengembangan API, simulasi data, dan automation dalam bug hunting atau pentesting. Multipjson memungkinkan kamu membuat banyak data JSON dengan berbagai field dan nilai yang dapat dikustomisasi secara interaktif.
 
 ---
 
 ## 🚀 Features
 
-- ✅ Generate ribuan objek JSON dalam 1 klik
+- ✅ Generate banyak data JSON sekaligus berdasarkan jumlah yang diinginkan.
 - ✅ Dukungan multi-field (`name,email,...`)
-- ✅ Auto increment value (`user1`, `user2`, dst)
+- ✅ Mendukung kustomisasi `field` dan `value` secara dinamis via input form.
 - ✅ Fitur `--prefix` dan `--suffix`
-- ✅ Auto-update checker
-- ✅ Bash auto-completion
-- ✅ ASCII CLI branding
+- ✅ Output JSON yang dihasilkan dapat langsung dilihat dalam tampilan yang mudah dibaca.
+- ✅ - Fitur **Copy to Clipboard** untuk menyalin JSON hasil generate dengan sekali klik
+- ✅ Tombol **View Raw** yang membuka JSON mentah dalam tab baru
+- ✅ Mode **Dark Mode** toggle di halaman utama untuk kenyamanan penggunaan di berbagai kondisi pencahayaan.
 
 ---
 
 ## 🔧 Installation
-
+1. Pastikan kamu sudah punya **Python 3.7+** dan **pip** atau **pipx** terinstall.
+2. Clone repository ini:
 ```bash
 git clone https://github.com/k4tedu/Multipjson.git
 cd Multipjson
 pipx install .
 ```
 
+## Atau bisa akses melalui web ini :
+```bash
+URL dari Railway
+```
+
 ## 🚀 Usage
+
+- Using without flags just type `multipjson`
+```bash
+multipjson
+```
+- or using with flags
 ```bash
 multipjson --help
 
